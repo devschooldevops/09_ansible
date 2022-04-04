@@ -1,0 +1,10 @@
+---
+
+  - name: imported
+    debug:
+      msg: "This task was imported"
+    tags:
+      - child_import
+      - debug
+
+

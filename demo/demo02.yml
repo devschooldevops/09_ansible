@@ -1,0 +1,32 @@
+---
+
+- name: demo02
+  hosts: web01
+  gather_facts: false
+
+  tasks:
+  - name: create user for alice
+    user:
+      name: alice
+    register: usr
+    become: true
+
+  - name: show output for user module
+    debug:
+      msg: "uid: {{ usr.uid }}; shell: {{ usr.shell }}; home: {{ usr.home }}"
+
+
+  - name: run command as alice
+    shell: touch wonderland; ls -laR
+    register: shell
+    become: true
+    become_user: alice
+
+  - name: show ls output 1
+    debug:
+      var: shell.stdout
+
+  - name: show ls output 2
+    debug:
+      var: shell.stdout_lines
+

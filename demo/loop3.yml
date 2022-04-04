@@ -1,0 +1,24 @@
+---
+# loop3.yml
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    my_dict:
+      firstname: John
+      lastname: Doe
+      age: 27
+
+  tasks:
+  - name: with_dict
+    debug:
+      msg: "key: {{ item.key }}, value: {{ item.value }}"
+    with_dict: "{{ my_dict }}"
+
+  - name: loop with dict2items filter
+    debug:
+      msg: "key: {{ item.key }}, value: {{ item.value }}"
+    loop: "{{ my_dict|dict2items }}"
+
+

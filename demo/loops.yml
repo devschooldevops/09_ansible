@@ -1,0 +1,37 @@
+---
+
+- hosts: web02
+  gather_facts: false
+  become: true
+
+  vars_files: vars/my_vars.yml
+
+  tasks:
+  - name: "task #1"
+    file:
+      path: "{{ item }}"
+      state: directory
+    loop: "{{ paths }}"
+    tags: "paths"
+
+  - name: "task #2"
+    blockinfile:
+      path: /opt/app.conf
+      state: present
+      create: true
+      block: |
+        name={{ app.name }}
+        version={{ app.version }}
+        type={{ app.type }}
+    tags: "app"
+
+  - name: "task #3"
+    user:
+      name: "{{ item.firstname|lower }}_{{ item.lastname|lower }}"
+      uid: "{{ item.uid }}"
+      comment: " {{ item.firstname }} {{ item.lastname }} - {{ item.role }}"
+    loop: "{{ users }}"
+    tags: "users"
+
+
+

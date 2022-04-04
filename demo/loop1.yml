@@ -1,0 +1,15 @@
+---
+# loop1.yml
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: loop over a simple list
+    debug:
+      msg: "{{ item }}"
+    loop:
+       - my_string
+       - "Another string"
+       - something_else
+

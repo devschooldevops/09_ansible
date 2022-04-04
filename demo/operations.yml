@@ -1,0 +1,15 @@
+---
+# operations.yml
+- hosts: loadbalancer
+  gather_facts: false
+  become: true
+
+  tasks:
+  - name: include_tasks
+    include_tasks: include.yml
+    tags: parent_include
+
+  - name: import_tasks
+    import_tasks: import.yml
+    tags: parent_import
+

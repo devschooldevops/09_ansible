@@ -1,0 +1,17 @@
+
+# Print the 'app' dictionary:
+my_application is web-based and version is 2.1.
+
+# Loop through the 'paths' list and print each member:
+  - /opt/dir01
+  - /opt/my_dir
+  - /opt/temp
+
+# Print comma separated list
+paths=/opt/dir01,/opt/my_dir,/opt/temp
+# Loop through the 'users' hash
+Users:
+  1. John Doe is a Ops.
+  2. Alice Mayflower is a Dev.
+  3. Mike Smith is a DevOps.
+

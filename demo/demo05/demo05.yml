@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  gather_facts: false
+  become: true
+
+  roles:
+  - common
+
+  pre_tasks:
+  - name: pre task
+    debug:
+      msg: "this is a pre-task"
+
+  tasks:
+  - name: standard task
+    debug:
+      msg: "this is a standard task"
+
+  post_tasks:
+  - name: post task
+    debug:
+      msg: "this is a post-task"

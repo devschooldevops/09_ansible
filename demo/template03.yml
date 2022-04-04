@@ -1,0 +1,14 @@
+---
+# template03.yml
+
+- hosts: webservers
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: copy template
+    template:
+        src: webservers.j2
+        dest: webservers.txt
+

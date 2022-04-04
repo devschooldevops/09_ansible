@@ -1,0 +1,35 @@
+---
+# tasks file for common
+
+- name: install ntp
+  yum:
+    name: ntp
+    state: installed
+
+- name: start/enable ntp
+  service:
+    name: ntpd
+    state: started
+    enabled: true
+
+- name: copy ntp.conf
+  copy:
+    src: ntp.conf
+    dest: /etc/ntp.conf
+  notify: restart ntpd
+
+- name: motd
+  lineinfile:
+    path: /etc/motd
+    line: "{{ motd }}"
+
+- name: copy profile files
+  copy:
+    src: "{{ item }}"
+    dest: /etc/profile.d/
+  loop:
+    - alias.sh
+    - history.sh
+    - prompt.sh
+
+  

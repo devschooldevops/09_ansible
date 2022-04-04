@@ -1,0 +1,32 @@
+---
+
+- hosts: web01
+  gather_facts: false
+  remote_user: ansible
+
+  tasks:
+  - name: run whoami as ansible
+    command: whoami
+    register: who
+
+  - name: display result
+    debug:
+      var: who.stdout
+
+- hosts: db01
+  gather_facts: false
+  remote_user: dbadmin
+
+  tasks:
+  - name: run whoami as dbadmin
+    command: whoami
+    register: who
+
+  - name: display result
+    debug:
+      msg: "remote_user is {{ who.stdout }}"
+
+
+    
+
+

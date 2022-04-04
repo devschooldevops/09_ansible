@@ -1,0 +1,6 @@
+# this is not a comment
+
+Simple template
+No effects on this line
+This is a simple template file
+
