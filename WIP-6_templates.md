@@ -1,3 +1,7 @@
+WIP
+adjust for 2022
+ - short, simple
+
 # Templates
 - Configuration files deployed by Ansible may vary for each remote servers or each cluster.
 - Creating static files for each of these configurations is not an efficient solution and it will take a lot more time and every time a new cluster is added you will have to add more files.

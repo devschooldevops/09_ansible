@@ -1,8 +1,0 @@
---- 
-
- - name: included
-   debug:
-     msg: "This task was included"
-   tags:
-      - child_include
-      - debug

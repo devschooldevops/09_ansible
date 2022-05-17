@@ -1,3 +1,5 @@
+WIP: shorten content
+
 # Variables and loops
 
 ## Creating valid variable names
@@ -53,9 +55,6 @@ martin:
   job: Developer
   skill: Advanced
 
-# Lists and dictionaries can be abbreviated
-fruits: [ Apple, Orange, Strawberry, Mango ]
-martin: { name: Martin, job: Developer, skill: Elite }
 ```
 
 More complicated data structures are possible, such as lists of dictionaries, dictionaries whose values are lists or a mix of both
@@ -94,6 +93,7 @@ network:
 - included files and roles
 - command line
 
+
 ```yaml
 - hosts: localhost
   connection: local
@@ -104,10 +104,6 @@ network:
     app_name: httpd
   vars_files:
     - vars/external_vars.yml
-
-  pre_tasks:
-  - name:  "include vars"
-    include_vars: "vars/other_vars.yml"
 
   tasks:
   - include_role:
@@ -138,7 +134,6 @@ Variables can be transformed/processed using [Jinja2 filters](http://jinja.pocoo
   vars:
     change_case: "This Is a STRING"
     list1: [ 0, 10, 3, 25 ]
-    my_url: "http://user:password@www.acme.com:9000/dir/index.html?query=term#fragment"
 
 
   tasks:
@@ -162,21 +157,6 @@ Variables can be transformed/processed using [Jinja2 filters](http://jinja.pocoo
     debug:
       msg: "{{ list1 | max }}"
     tags: max
-
-  - name: split url
-    debug:
-      msg: "{{ my_url | urlsplit }}"
-    tags: split
-
-  - name: split url
-    debug:
-      msg: "{{ my_url | urlsplit('hostname') }}"
-    tags: split
-
-  - name: split url
-    debug:
-      msg: "{{ my_url | urlsplit('scheme') }}"
-    tags: split
 ```
 
 ## Variable precedence
@@ -198,7 +178,7 @@ If multiple variables of the same name are defined in different places, they get
 - task vars (only for the task)
 - extra vars
 
-
+REMOVE MENTIONS ABOUT with_ loops
 # Loops
 - Sometimes you want to repeat a task multiple times.
 - In computer programming, this is called a loop.
@@ -308,7 +288,7 @@ You can define the list in a variables file, or in the **vars** section of your 
     - { name: 'bob', groups: 'ops' }
 ```
 
-> **LAB #08**
+> **LAB #08** ADJUST FOR 2022
 > - use 'git pull' (from master) and 'git merge master' (from your personal branch) to refresh the repo
 > - on your local VM change your working directory to **labs/lab08**
 > - copy the inventory file created in LAB #02
