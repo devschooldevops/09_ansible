@@ -23,3 +23,14 @@ users:
     lastname: Smith
     uid: 2003
     role: DevOps
+
+mounts:
+  - device: "/dev/sda1"
+    size: 536870912
+    mountpoint: "/boot"
+  - device: "/dev/mapper/vg1-loglv"
+    size: 5368709120
+    mountpoint: "/var/log"
+  - device: "/dev/mapper/vg1-datalv"
+    size: 2199023255552
+    mountpoint: "/opt/data"
