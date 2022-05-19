@@ -96,25 +96,13 @@ The **dict2items** filter must be used to transform a dictionary into a list of 
 > **EXERCISE**
 >
 > - use the iventory file created in previous exercise
-> - in the **vars** directory create a file named **loop_vars.yml** that contains:
-> - in **loop_vars.yml**:
->   - create a list named **paths** containing the following elements: **/opt/dir01**, **/opt/my_dir**, **/opt/temp**
->   - create a dictionary named **app** whith the following keys and values:
->     - name: my_application
->     - version: 2.1
->     - type: web-based
->   - create list of dictionaries named **users**
->     - each dictionary should have **firstname**, **lastname**, **uid**  and **role** as **keys**
->     - use John, Alice and Mike as values for the **firstname** key
->     - use Doe, Mayflower and Smith as values for the **lastname** key
->     - use 2001, 2002 and 2003 as values for the **uid** key
->     - use Ops, Dev and DevOps as values for the **role** key
 > - create a playbook named **loops.yml** as follows:
 >   - contains a single play that runs against the **web01** host
 >   - includes variables from **vars/loop_vars.yml**
->   - task #1: loop through the **paths** variable to create the directories using the **file** module
+>   - task #1: loop through the **paths** variable to create the directories using the [**file**](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html) module
 >   - task #2: create a file named **app.conf** in **/opt/**:
->     - contains the key/value pairs from the **app** variable
+>     - use the [**blockinfile**](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html) module
+>     - the target file contains the key/value pairs from the **app** variable
 >     - each key/value pair is in the **key=value** format, one per line
 >     - loop is not necessary for this task
 >   - task #3: loop through the **users** hash and create users on the taget host as follows:
