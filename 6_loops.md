@@ -13,7 +13,7 @@
 > ---
 > - hosts: localhost
 >   connection: local
->
+>   gather_facts: false
 >
 >   tasks:
 >   - name: loop directly over a list
@@ -47,6 +47,7 @@ The **dict2items** filter must be used to transform a dictionary into a list of 
 > - hosts: localhost
 >   connection: local
 >   gather_facts: false
+>
 >   vars:
 >     user:
 >       firstname: John
@@ -93,7 +94,7 @@ The **dict2items** filter must be used to transform a dictionary into a list of 
 >     loop: "{{ tech }}"
 > ```
 
-> **EXERCISE**
+> **EXERCISE**:
 >
 > - use the iventory file created in previous exercise
 > - create a playbook named **loops.yml** as follows:
