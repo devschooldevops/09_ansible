@@ -103,7 +103,7 @@ The **dict2items** filter must be used to transform a dictionary into a list of 
 >   - task #1: loop through the **paths** variable to create the directories using the [**file**](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html) module
 >   - task #2: create a file named **app.conf** in **/opt/**:
 >     - use the [**blockinfile**](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html) module
->     - the target file contains the key/value pairs from the **app** variable
+>     - the target file contains the application name, version and type
 >     - each key/value pair is in the **key=value** format, one per line
 >     - loop is not necessary for this task
 >   - task #3: loop through the **users** hash and create users on the taget host as follows:
